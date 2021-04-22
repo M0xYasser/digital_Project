@@ -1,17 +1,28 @@
 import telebot
 from telebot import types
 
-bot = telebot.TeleBot("1526355880:AAGfr5_2SbmPn4nb38Prnj7r88-wQ52wH8o", parse_mode=None) 
-@bot.message_handler(commands=['start', 'help'])
-def send_welcome(message):
-	bot.reply_to(message, "Howdy, how are you doing?")
-@bot.message_handler(func=lambda m: True)
-def echo_all(message):
-	bot.reply_to(message, message.text)
-markup = types.ReplyKeyboardMarkup(row_width=2)
-itembtn1 = types.KeyboardButton('a')
-itembtn2 = types.KeyboardButton('v')
-itembtn3 = types.KeyboardButton('d')
-markup.add(itembtn1, itembtn2, itembtn3)
-tb.send_message(chat_id, "Choose one letter:", reply_markup=markup)
-bot.polling()
+bot = telebot.TeleBot("1755271135:AAHb9TywoZ0v9YXIYpDaFAQ3kbRm8LZIPz0", parse_mode=None) 
+
+
+
+keyboardmain = types.InlineKeyboardMarkup(row_width=1)
+first_button = types.InlineKeyboardButton(text="Video 📹", url="https://telegra.ph/test-04-22-166")
+second_button = types.InlineKeyboardButton(text="PDF 📄", url="https://telegra.ph/test-04-22-166")
+t_button = types.InlineKeyboardButton(text="Task 🎯", url="https://telegra.ph/test-04-22-166")
+s_button = types.InlineKeyboardButton(text="Task Form ✔️", url="https://telegra.ph/test-04-22-166")
+keyboardmain.add(first_button, second_button,t_button,s_button)
+
+
+@bot.inline_handler(lambda query : query.query=='course3')
+def test (inline_query):
+    r=types.InlineQueryResultArticle(
+        id='1',
+        title='Session 1️⃣', 
+        input_message_content=types.InputTextMessageContent('Session 1️⃣'),
+        reply_markup=keyboardmain,
+        thumb_url="https://miro.medium.com/max/2000/1*ilC2Aqp5sZd1wi0CopD1Hw.png"
+    )
+    bot.answer_inline_query(inline_query.id,[r])
+    
+
+bot.polling(none_stop=True)

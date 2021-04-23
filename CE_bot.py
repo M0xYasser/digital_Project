@@ -1,9 +1,26 @@
 import telebot
 from telebot import types
 
-bot = telebot.TeleBot("1755271135:AAHb9TywoZ0v9YXIYpDaFAQ3kbRm8LZIPz0", parse_mode=None) 
+bot = telebot.TeleBot("1755271135:AAHb9TywoZ0v9YXIYpDaFAQ3kbRm8LZIPz0", parse_mode="MARKDOWN") 
 
+@bot.message_handler(commands=['start', 'help'])
+def send_welcome(message):
+ bot.reply_to(message, "Thanks for Subscribing ❤️ \n شكرا لاشتراكك ❤ ")
+ bot.send_message(message.chat.id,"Join US 🤩:\n\n[DSC Mobile Channel ⚠️](https://t.me/joinchat/TQX0I0_EvrzNdDlH/)\n\n[DSC Mobile Group 💬](https://t.me/joinchat/U7kQuDOR2iWTcFQG)\n\n*Main Bot ♥️* _Coming Soon_\n\n*For Questions ❓* _Coming Soon_\n\n*For Feedbacks  ⭐️* _Coming Soon_")
+    
 
+@bot.message_handler(func=lambda message: True)
+def echo_all(message):
+	bot.reply_to(message, "Join US 🤩:\n\n[DSC Mobile Channel ⚠️](https://t.me/joinchat/TQX0I0_EvrzNdDlH/)\n\n[DSC Mobile Group 💬](https://t.me/joinchat/U7kQuDOR2iWTcFQG)\n\n*Main Bot ♥️* _Coming Soon_\n\n*For Questions ❓* _Coming Soon_\n\n*For Feedbacks  ⭐️* _Coming Soon_")
+
+#Main Bot ♥️
+#https://t.me/DSC_FLUTTER_bot
+
+#For Questions ❓
+#https://t.me/DSCMobileQuestion_bot
+
+#For Feedbacks  ⭐️
+#https://t.me/DSCMobileFeedbacks_bot
 
 keyboardmain = types.InlineKeyboardMarkup(row_width=1)
 first_button = types.InlineKeyboardButton(text="Video 📹", url="https://www.youtube.com/watch?v=iAX5kDoUwWo")

@@ -1,1 +1,1 @@
-worker: python CE_bot.py
+worker: python counter.py

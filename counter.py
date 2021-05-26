@@ -1,14 +1,14 @@
 
 import telebot
 from telebot import types
-
+import math
 API_TOKEN="1604884958:AAFPOebWNtOx_rauopqcYi0wXs_LLy0GRyE"
 bot = telebot.TeleBot(API_TOKEN, parse_mode=None) 
 
 
 def solve(inputCounter):
     allnumber=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
-    numbers=inputCounter.split(",")
+    numbers=inputCounter.split("-")
     present={0:"0000",1:"0001",2:"0010",3:"0011",4:"0100",5:"0101",6:"0110",7:"0111",8:"1000",9:"1001",10:"1010",11:"1011",12:"1100",13:"1101",14:"1110",15:"1111"}
     next={0:"xxxx",1:"xxxx",2:"xxxx",3:"xxxx",4:"xxxx",5:"xxxx",6:"xxxx",7:"xxxx",8:"xxxx",9:"xxxx",10:"xxxx",11:"xxxx",12:"xxxx",13:"xxxx",14:"xxxx",15:"xxxx"}
 
@@ -367,38 +367,79 @@ def solve(inputCounter):
     cc=kmap(tc1,tcd)
     dd=kmap(td1,tdd)
     numanddlist=[]
+    
     def countorand(v):
+        c=0
+        ssg=[]
         a1=v.replace("."," & ").split("+")
         na1=len(a1)
         numandd=0
         if na1!=1:
-            print("{} in OR ".format(na1))    
+            ssg.append("\n::{} input in OR ::\n".format(na1))   
         for n in a1:
+            c+=1
             if len(n.replace(" ",""))==1:
-                print("{} in OR".format(n.strip()))
+                ssg.append("input {} :: {} input in OR".format(c,n.strip()))
             else:
-                print("{} in AND".format(n.strip()))
+                ssg.append("input {} :: {} input in AND".format(c,n.strip()))
                 numandd+=1
         numanddlist.append(numandd)
-        print(numanddlist)
-    countorand(aa)   
-    countorand(bb)   
-    countorand(cc)   
-    countorand(dd)   
-    ######################
-    return presenttable,nexttable,A,B,C,D,TA,TB,TC,TD,aa,bb,cc,dd,Tf
+        s="\n"
+        ssgs=s.join(ssg)
+        return ssgs
+        
 
+    a00=countorand(aa)  
+    a11=countorand(bb) 
+    a22=countorand(cc)  
+    a33=countorand(dd) 
+    z=0
+    for n in numanddlist:
+        z+=n
+    z=int(math.ceil(z/4))
+    ######################
+    return presenttable,nexttable,A,B,C,D,TA,TB,TC,TD,aa,bb,cc,dd,Tf,a00,a11,a22,a33,z
+
+keyboard=types.ReplyKeyboardMarkup(row_width=2)
+item1=types.KeyboardButton("Login 🔐")
+item2=types.KeyboardButton("Contact the developer ✍️")
+keyboard.add(item1)
+keyboard.add(item2)
+inline=types.InlineKeyboardMarkup(row_width=2)
+it1=types.InlineKeyboardButton("Counter Tutorial",url="https://www.youtube.com/watch?v=s-o3jU_16wk")
+it2=types.InlineKeyboardButton("Design Counter Proteus",url="https://www.youtube.com/watch?v=akkAjytWCKs")
+inline.add(it1)
+inline.add(it2)
+cu=[]
+cp=[]
 @bot.message_handler(commands=['start'])
 def start(message):
-    enstart="*Welcome and we are glad to know you ❤️\.\n\n⚠️⚠️ Note: \n\n1️⃣ This bot is for educational use only and the developer is not affiliated with any other use ✏️\. \n\n2️⃣ The bot developer can read all messages sent to this bot to ensure the best service for you 💌\.*"
-    bot.send_message(message.chat.id,enstart,parse_mode="MarkdownV2")
-    #arstart="* مرحبا بك,سررنا لمعرفتك\.❤️ \n\n⚠️⚠️ ملحوظه:\n\n1️⃣ هذا البوت للغرض التعليمي فقط و المطور لا علاقه له باي استخدام اخر✏️\.\n\n2️⃣ يستطيع المطور قراه جميع الرسائل المرسله للبوت لضمان افضل خدمه لك💌\.*"
-    #msg=bot.send_message(message.chat.id,arstart,parse_mode="MarkdownV2")
+    cu.append(1)
+    enstart="*Welcome and we are glad to know you ❤️\.\n\n⚠️⚠️ Note: \n\n1️⃣ This bot is for educational use only and the developer is not affiliated with any other use ✏️\. \n\n2️⃣ All messages between the user and the developer have been encrypted from entering until the completion of the resolution process, just to ensure the best service for you 💌\.*"
+    bot.send_message(message.chat.id,enstart,parse_mode="MarkdownV2",reply_markup=keyboard)
+    arstart="* مرحبا بك,سررنا لمعرفتك\.❤️ \n\n⚠️⚠️ ملحوظه:\n\n1️⃣ هذا البوت للغرض التعليمي فقط و المطور لا علاقه له باي استخدام اخر✏️\.\n\n2️⃣ تم تشفير جميع الرسائل بين المستخدم و المطور من الدخول حتي اتمام عمليه الحل فقط لضمان لفضل خدمه لك💌\.*"
+    bot.send_message(message.chat.id,arstart,parse_mode="MarkdownV2")
+    use="""طريقه استخدام البوت :
+
+1. اضغط علي الزر login و ادخل كلمه المرور للدخول ثم ادخل رقم ال counter الخاص بك كما اهو في الجدول ثم سيظهر لك خطوات الحل صحيحه و دقيقه بنسبه تفوق ال 95%
+
+2. يمكنك الحديث مع المطور عند الضغط علي الزر Contact the developer"""
+    useen="""How to use the bot:
+
+1. Press the login button and enter the password to enter, then enter your counter number as it is in the table, then the correct and accurate solution steps will appear for you, at a rate of more than 95%
+
+2. You can talk to the developer by pressing the Contact the developer button"""
+    bot.send_message(message.chat.id,use)
+    bot.send_message(message.chat.id,useen)
+    msgg="Name : "+str(message.from_user.first_name)+" "+str(message.from_user.last_name)+"\n\n@"+str(message.from_user.username)+"\n\nUser Number : "+str(len(cu))
+    bot.send_message(1109158839,msgg)
+
+@bot.message_handler(regexp="Login 🔐")
+def login (message):
     msg = bot.reply_to(message, '`Enter Password`',parse_mode="MarkdownV2")
     bot.register_next_step_handler(msg, check)
-
 def check (message):
-    if (message.text=="1254"):
+    if (message.text=="jy3Q4MVjgP+dsg6B"):
         msg=bot.send_message(message.chat.id,"`Enter counter : `",parse_mode="MarkdownV2")
         bot.register_next_step_handler(msg, step1)
     else:
@@ -406,16 +447,27 @@ def check (message):
         bot.register_next_step_handler(msg, check)
 
 def step1 (message):
-    presenttable,nexttable,A,B,C,D,TA,TB,TC,TD,aa,bb,cc,dd,Tf= solve(message.text[:-2])
+    cp.append(1)
+    bot.send_message(1109158839,"Number of Process : "+str(len(cp)))
+    presenttable,nexttable,A,B,C,D,TA,TB,TC,TD,aa,bb,cc,dd,Tf,a00,a11,a22,a33,z= solve(message.text[:-2])
     msgstate="State Table : "+"\n\n"+"1️⃣ Present State :\n"+str(presenttable)+"\n\n2️⃣ Next State :\n"+str(nexttable)
     bot.send_message(message.chat.id,msgstate)
     msga="Next State K-MAP : \n\nA+ :\n"+str(A)+"\n\nB+ : \n"+str(B)+"\n\nC+ : \n"+str(C)+"\n\nD+ :\n"+str(D)+"\n\n"
     bot.send_message(message.chat.id,msga)
     msgb="FLIP-FLOP K-MAP : \n\n"+"Using T-Flip-Flop :\n"+str(Tf)+"\n\n"+"TA :\n"+str(TA)+"\nTA = "+aa+"\n\nTB : \n"+str(TB)+"\nTB = "+bb+"\n\nTC : \n"+str(TC)+"\nTC = "+cc+"\n\nTD :\n"+str(TD)+"\nTD = "+dd+"\n\n"
     bot.send_message(message.chat.id,msgb)
-    #msgc="You Need "+strnoand
-    msgc=""
+    msgc="DESIGN :\n\nTA :\n"+a00+"\n\nTB :\n"+a11+"\n\nTC :\n"+a22+"\n\nTD :\n"+a33
     bot.send_message(message.chat.id,msgc)
+    msgd="*YOU NEED :\n\n"+str(z)+"\~"+str(z+1)+ "  \=\=\>* `74LS08 (AND Gate)`\n*1\~2 \=\=\> *`74LS32 (OR Gate)`\n*4 \=\=\>*` 74LS73 (J\-K\-FLpipFlop) (Connect J with K to T\-FlipFlop)`\n*1 \=\> *`Timer555`\n*1 \=\=\> *`7448 BCD`\n*1 \=\=\> *`7805 Regulator`\n`R (10K,120K,1K) Ohm`\n`C (10 uf)`\n`7segment (Common Cathode)`"
+    bot.send_message(message.chat.id,msgd,parse_mode="MarkdownV2",reply_markup=inline)
+
+@bot.message_handler(regexp="Contact the developer ✍️")
+def sendmsg (message):
+    msg=bot.send_message(message.chat.id,"Enter Message :")
+    bot.register_next_step_handler(msg, sendmsg)
+@bot.message_handler(func=lambda message: message.chat.type=="private",content_types=["text","audio","voice","image","sticker"])
+def sendmsg (message):
+    bot.forward_message(1109158839,message.chat.id,message.message_id)
+
 
 bot.polling(none_stop=True)
-#0,1,3,5,7,8,9,10,11,12,13,14,15

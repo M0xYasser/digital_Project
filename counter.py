@@ -374,7 +374,15 @@ def solve(inputCounter,message):
         cc=kmap(tc1,tcd)
         dd=kmap(td1,tdd)
         numanddlist=[]
-        
+        if dd=="":
+            dd="1"
+        if aa=="":
+            aa="1"
+        if bb=="":
+            bb="1"
+        if cc=="":
+            cc="1"
+
         def countorand(v):
             c=0
             ssg=[]

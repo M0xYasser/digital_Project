@@ -5,27 +5,6 @@ import math
 API_TOKEN="1844883186:AAHS-wqGST-ryVd-FkVmWMzb6P0q9Xwa67w"
 bot = telebot.TeleBot(API_TOKEN, parse_mode=None) 
 
-bug="""0-1-4-6-8-9-12-14-15-0
-0-2-4-5-9-12-15-0
-0-2-4-6-8-10-12-13-14-15-0
-0-3-4-5-8-9-10-0
-0-3-4-5-8-9-11-14-15-0
-0-3-5-6-9-11-13-15-0
-0-3-5-9-10-11-12-15-0
-0-3-6-9-11-12-13-14-15-0
-0-5-8-9-12-13-14-15-0
-1-2-3-4-7-8-9-12-14-1
-1-2-3-5-6-8-9-12-1
-1-2-3-7-8-9-10-11-12-13-15-1
-1-3-5-7-9-11-12-13-14-15-1
-1-4-5-7-8-12-13-15-1
-2-3-4-5-6-9-12-14-15-2
-2-4-6-7-8-9-11-13-14-15-2
-3-5-6-8-9-11-14-15-3
-4-5-6-11-12-13-14-15-4
-6-7-8-9-10-11-13-14-15-6
-6-8-9-10-11-12-13-14-15-6"""
-
 def solve(inputCounter,message):
     try:
         allnumber=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
@@ -517,9 +496,6 @@ def check (message):
         start(message)
     elif message.text=="Login 🔐":
         login(message)
-    elif message.text in bug:
-        msg=bot.send_message(message.chat.id,"`incorrect password ❌\nEnter Password again :`",parse_mode="MarkdownV2")
-        bot.register_next_step_handler(msg, check)
     else:
         msg=bot.send_message(message.chat.id,"`incorrect password ❌\nEnter Password again :`",parse_mode="MarkdownV2")
         bot.register_next_step_handler(msg, check)

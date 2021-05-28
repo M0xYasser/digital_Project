@@ -417,7 +417,10 @@ def solve(inputCounter,message):
         ######################
         return presenttable,nexttable,A,B,C,D,TA,TB,TC,TD,aa,bb,cc,dd,Tf,a00,a11,a22,a33,z
     except:
-        bot.send_message(message.chat.id ,"❌❌❌\nThe entry was made by mistake.\nPlease wait a few moments, and we will send you a message again to enter the counter code 🔄.\n\n⚠️⚠️⚠️\nMake sure that the code number is correct, and between the numbers there is a sign (- / , &).\n\n❌❌❌\nتم الادخال بطريقه خطأ برجاء الانتظار لحظات و سنرسل اليك رساله من جديد لادخال كود العداد .\nتاكد من ان رقم الكود صحيح و بين الارقام علامه من هذه العلامات (- / , &).")
+        if message.text=="/upgrade" or message.text=="/start":
+            start(message)
+        else:
+            bot.send_message(message.chat.id ,"❌❌❌\nThe entry was made by mistake.\nPlease wait a few moments, and we will send you a message again to enter the counter code 🔄.\n\n⚠️⚠️⚠️\nMake sure that the code number is correct, and between the numbers there is a sign (- / , &).\n\n❌❌❌\nتم الادخال بطريقه خطأ برجاء الانتظار لحظات و سنرسل اليك رساله من جديد لادخال كود العداد .\nتاكد من ان رقم الكود صحيح و بين الارقام علامه من هذه العلامات (- / , &).")
 
 
 listproject=types.ReplyKeyboardMarkup(row_width=1)

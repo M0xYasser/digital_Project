@@ -728,7 +728,7 @@ def step1 (message):
         bot.send_message(message.chat.id,msgb)
         msgc="DESIGN :\n\nTA :\n"+a00+"\n\nTB :\n"+a11+"\n\nTC :\n"+a22+"\n\nTD :\n"+a33
         bot.send_message(message.chat.id,msgc)
-        msgd="*YOU NEED \( T \) :\n\n"+str(int(math.ceil(z/4)))+"\~"+str(z+1)+ "  \=\=\>* `74LS08 (AND Gate)`\n*1\~2 \=\=\> *`74LS32 (OR Gate)`\n*\(2 in BreadBord \= 4 in Proteus\) \=\=\>*` 74LS73 (J\-K\-FLpipFlop) (Connect J with K to T\-FlipFlop)`\n*1 \=\> *`Timer555`\n*1 \=\=\> *`7448 BCD`\n*1 \=\=\> *`7805 Regulator`\n\n*The following number of components are related to the way you are connected on the board :*\n\n`R (10K,120K,1K,330) Ohm`\n`C (10 uf)`\n`7segment (Common Cathode)`"+"\n`Wires and LEDs`"
+        msgd="*YOU NEED \( T \) :\n\n"+str(int(math.ceil(int(math.ceil(z/4))/4)))+"\~"+str(z+1)+ "  \=\=\>* `74LS08 (AND Gate)`\n*1\~2 \=\=\> *`74LS32 (OR Gate)`\n*\(2 in BreadBord \= 4 in Proteus\) \=\=\>*` 74LS73 (J\-K\-FLpipFlop) (Connect J with K to T\-FlipFlop)`\n*1 \=\> *`Timer555`\n*1 \=\=\> *`7448 BCD`\n*1 \=\=\> *`7805 Regulator`\n\n*The following number of components are related to the way you are connected on the board :*\n\n`R (10K,120K,1K,330) Ohm`\n`C (10 uf)`\n`7segment (Common Cathode)`"+"\n`Wires and LEDs`"
         bot.send_message(message.chat.id,msgd,parse_mode="MarkdownV2",reply_markup=inline)
         bot.send_message(message.chat.id,"\nAnother Solution :\n\nJ-K Flip Flop")
         presenttable,nexttable,A,B,C,D,TA,TB,TC,TD,aa,bb,cc,dd,Tf,a00,a11,a22,a33,z,JA,JB,JC,JD,KA,KB,KC,KD,Jf= solve(message.text[:-2],message,"J")

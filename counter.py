@@ -654,14 +654,14 @@ p12=types.KeyboardButton("1-2-3-7-8-9-10-11-12-13-15-1")
 p13=types.KeyboardButton("1-3-5-7-9-11-12-13-14-15-1")
 p14=types.KeyboardButton("1-4-5-7-8-12-13-15-1")
 p15=types.KeyboardButton("2-3-4-5-6-9-12-14-15-2")
-p16=types.KeyboardButton("2-4-6-7-8-9-11-13-14-15-2")
+p16=types.KeyboardButton("0-1-2-3-4-5-6-7-8-9-10-11-12-13-14-15-0")
 p17=types.KeyboardButton("3-5-6-8-9-11-14-15-3")
 p18=types.KeyboardButton("4-5-6-11-12-13-14-15-4")
 p19=types.KeyboardButton("6-7-8-9-10-11-13-14-15-6")
 p20=types.KeyboardButton("6-8-9-10-11-12-13-14-15-6")
 back=types.KeyboardButton("🔙 BACK")
 back2=types.KeyboardButton("🔙  BACK")
-listproject.add(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,back)
+listproject.add(p16,p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p17,p18,p19,p20,back)
 loginn=types.ReplyKeyboardMarkup(row_width=1)
 loginn1=types.KeyboardButton("List Of Projects 📽")
 loginn2=types.KeyboardButton("Another Counter ⏳")
@@ -728,7 +728,7 @@ def step1 (message):
         bot.send_message(message.chat.id,msgb)
         msgc="DESIGN :\n\nTA :\n"+a00+"\n\nTB :\n"+a11+"\n\nTC :\n"+a22+"\n\nTD :\n"+a33
         bot.send_message(message.chat.id,msgc)
-        msgd="*YOU NEED \( T \) :\n\n"+str(int(math.ceil(z/4)))+"\~"+str(int(math.ceil(z/4))+1)+ "  \=\=\>* `74LS08 (AND Gate)`\n*1\~2 \=\=\> *`74LS32 (OR Gate)`\n*\(2 in BreadBord \= 4 in Proteus\) \=\=\>*` 74LS73 (J\-K\-FLpipFlop) (Connect J with K to T\-FlipFlop)`\n*1 \=\> *`Timer555`\n*1 \=\=\> *`7448 BCD`\n*1 \=\=\> *`7805 Regulator`\n\n*The following number of components are related to the way you are connected on the board :*\n\n`R (10K,120K,1K,330) Ohm`\n`C (10 uf)`\n`7segment (Common Cathode)`"+"\n`Wires and LEDs`"
+        msgd="*YOU NEED \( T \) :\n\n"+str(int(math.ceil(z/4)))+"\~"+str(int(math.ceil(z/4))+1)+ "  \=\=\>* `74LS08 (AND Gate)`\n*1\~2 \=\=\> *`74LS32 (OR Gate)`\n*\(2 in BreadBord \= 4 in Proteus\) \=\=\>*` 74LS73 (J\-K\-FLpipFlop) (Connect J with K to T\-FlipFlop)`\n*1 \=\> *`Timer555`\n*1 \=\=\> *`7805 Regulator`\n\n*The following number of components are related to the way you are connected on the board :*\n\n`R (10K,120K,1K,330) Ohm`\n`C (10 uf)`\n*1 \=\=\> *`7448 BCD`\n`7segment (Common Cathode)`"+"\n`Wires and LEDs`"
         bot.send_message(message.chat.id,msgd,parse_mode="MarkdownV2",reply_markup=inline)
         bot.send_message(message.chat.id,"\nAnother Solution :\n\nJ-K Flip Flop")
         presenttable,nexttable,A,B,C,D,TA,TB,TC,TD,aa,bb,cc,dd,Tf,a00,a11,a22,a33,z,JA,JB,JC,JD,KA,KB,KC,KD,Jf= solve(message.text[:-2],message,"J")
@@ -743,7 +743,7 @@ def step1 (message):
         bot.send_message(message.chat.id,msgk)
         msgc="DESIGN :\n\nKA :\n"+a00+"\n\nKB :\n"+a11+"\n\nKC :\n"+a22+"\n\nKD :\n"+a33
         bot.send_message(message.chat.id,msgc)
-        msgd="*YOU NEED \( J\-K \) :\n\n"+str(int(math.ceil(ss/4)))+"\~"+str(int(math.ceil(ss/4))+1)+ "  \=\=\>* `74LS08 (AND Gate)`\n*1\~2 \=\=\> *`74LS32 (OR Gate)`\n*\(2 in BreadBord \= 4 in Proteus\) \=\=\>*` 74LS73 (J\-K\-FLpipFlop) (Connect J with K to T\-FlipFlop)`\n*1 \=\> *`Timer555`\n*1 \=\=\> *`7448 BCD`\n*1 \=\=\> *`7805 Regulator`\n\n*The following number of components are related to the way you are connected on the board :*\n\n`R (10K,120K,1K,330) Ohm`\n`C (10 uf)`\n`7segment (Common Cathode)`"+"\n`Wires and LEDs`"
+        msgd="*YOU NEED \( J\-K \) :\n\n"+str(int(math.ceil(ss/4)))+"\~"+str(int(math.ceil(ss/4))+1)+ "  \=\=\>* `74LS08 (AND Gate)`\n*1\~2 \=\=\> *`74LS32 (OR Gate)`\n*\(2 in BreadBord \= 4 in Proteus\) \=\=\>*` 74LS73 (J\-K\-FLpipFlop) (Connect J with K to T\-FlipFlop)`\n*1 \=\> *`Timer555`\n*1 \=\=\> *`7805 Regulator`\n\n*The following number of components are related to the way you are connected on the board :*\n\n`R (10K,120K,1K,330) Ohm`\n`C (10 uf)`\n*1 \=\=\> *`7448 BCD`\n`7segment (Common Cathode)`"+"\n`Wires and LEDs`"
         bot.send_message(message.chat.id,msgd,parse_mode="MarkdownV2",reply_markup=inline)
         bot.send_message(1109158839,"DONE : "+str(message.from_user.first_name)+" "+str(message.from_user.last_name))
     except:
@@ -792,9 +792,21 @@ def sendmsg114 (message):
 @bot.message_handler(regexp="2-3-4-5-6-9-12-14-15-2")
 def sendmsg115 (message):
     step1(message)
-@bot.message_handler(regexp="2-4-6-7-8-9-11-13-14-15-2")
+@bot.message_handler(regexp="0-1-2-3-4-5-6-7-8-9-10-11-12-13-14-15-0")
 def sendmsg116 (message):
-    step1(message)
+    ss=0
+    presenttable,nexttable,A,B,C,D,TA,TB,TC,TD,aa,bb,cc,dd,Tf,a00,a11,a22,a33,z,JA,JB,JC,JD,KA,KB,KC,KD,Jf= solve(message.text[:-2],message,"T")
+    msgstate="State Table : "+"\n\n"+"1️⃣ Present State :\n"+str(presenttable)+"\n\n2️⃣ Next State :\n"+str(nexttable)
+    bot.send_message(message.chat.id,msgstate)
+    msga="Next State K-MAP : \n\nA+ :\n"+str(A)+"\n\nB+ : \n"+str(B)+"\n\nC+ : \n"+str(C)+"\n\nD+ :\n"+str(D)+"\n\n"
+    bot.send_message(message.chat.id,msga)
+    msgb="FLIP-FLOP K-MAP : \n\n"+"Using T-Flip-Flop :\n"+str(Tf)+"\n\n"+"TA :\n"+str(TA)+"\nTA = "+aa+"\n\nTB : \n"+str(TB)+"\nTB = "+bb+"\n\nTC : \n"+str(TC)+"\nTC = "+cc+"\n\nTD :\n"+str(TD)+"\nTD = "+dd+"\n\n"
+    bot.send_message(message.chat.id,msgb)
+    msgc="DESIGN :\n\nTA :\n"+a00+"\n\nTB :\n"+a11+"\n\nTC :\n"+a22+"\n\nTD :\n"+a33
+    bot.send_message(message.chat.id,msgc)
+    msgd="*YOU NEED \( T \) :\n\n1  \=\=\>* `74LS08 (AND Gate)`\n*\(2 in BreadBord \= 4 in Proteus\) \=\=\>*` 74LS73 (J\-K\-FLpipFlop) (Connect J with K to T\-FlipFlop)`\n*1 \=\> *`Timer555`\n*1 \=\=\> *`7805 Regulator`\n\n*The following number of components are related to the way you are connected on the board :*\n\n`R (10K,120K,1K,330) Ohm`\n`C (10 uf)`\n*1 \=\=\> *`7448 BCD`\n`7segment (Common Cathode)`"+"\n`Wires and LEDs`"
+    bot.send_message(message.chat.id,msgd,parse_mode="MarkdownV2",reply_markup=inline)
+    bot.send_message(1109158839,"DONE : "+str(message.from_user.first_name)+" "+str(message.from_user.last_name))
 @bot.message_handler(regexp="3-5-6-8-9-11-14-15-3")
 def sendmsg117 (message):
     step1(message)

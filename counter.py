@@ -678,7 +678,7 @@ inline.add(it2)
 def start(message):
     enstart="*Welcome and we are glad to know you ❤️\.\n\n⚠️⚠️ Note: \n\n1️⃣ This bot is for educational use only and the developer is not affiliated with any other use ✏️\. \n\n2️⃣ All messages between the user and the developer have been encrypted from entering until the completion of the resolution process, just to ensure the best service for you 💌\.*"
     bot.send_message(message.chat.id,enstart,parse_mode="MarkdownV2",reply_markup=keyboard)
-    arstart="* مرحبا بك,سررنا لمعرفتك\.❤️ \n\n⚠️⚠️ ملحوظه:\n\n1️⃣ هذا البوت للغرض التعليمي فقط و المطور لا علاقه له باي استخدام اخر✏️\.\n\n2️⃣ تم تشفير جميع الرسائل بين المستخدم و المطور من الدخول حتي اتمام عمليه الحل فقط لضمان لفضل خدمه لك💌\.*"
+    arstart="* مرحبا بك,سررنا لمعرفتك\.❤️ \n\n⚠️⚠️ ملحوظه:\n\n1️⃣ هذا البوت للغرض التعليمي فقط و المطور لا علاقه له باي استخدام اخر✏️\.\n\n2️⃣ تم تشفير جميع الرسائل بين المستخدم و المطور من الدخول حتي اتمام عمليه الحل فقط لضمان افضل خدمه لك💌\.*"
     bot.send_message(message.chat.id,arstart,parse_mode="MarkdownV2")
     use="""طريقه استخدام البوت :
 1. اضغط علي الزر login و ادخل كلمه المرور للدخول ثم ادخل رقم ال counter الخاص بك كما اهو في الجدول ثم سيظهر لك خطوات الحل صحيحه و دقيقه بنسبه تفوق ال 95%
@@ -745,6 +745,7 @@ def step1 (message):
         bot.send_message(message.chat.id,msgc)
         msgd="*YOU NEED \( J\-K \) :\n\n"+str(int(math.ceil(ss/4)))+"\~"+str(int(math.ceil(ss/4))+1)+ "  \=\=\>* `74LS08 (AND Gate)`\n*1\~2 \=\=\> *`74LS32 (OR Gate)`\n*\(2 in BreadBord \= 4 in Proteus\) \=\=\>*` 74LS73 (J\-K\-FLpipFlop) (Connect J with K to T\-FlipFlop)`\n*1 \=\> *`Timer555`\n*1 \=\=\> *`7805 Regulator`\n\n*The following number of components are related to the way you are connected on the board :*\n\n`R (10K,120K,1K,330) Ohm`\n`C (10 uf)`\n*1 \=\=\> *`7448 BCD`\n`7segment (Common Cathode)`"+"\n`Wires and LEDs`"
         bot.send_message(message.chat.id,msgd,parse_mode="MarkdownV2",reply_markup=inline)
+        bot.send_message(message.chat.id,"اذا واجهتك اي مشكلة في طريقه الحل او خطأ بها برجاء مراسلة المطور @M0xYasser ",parse_mode="MarkdownV2",reply_markup=inline)
         bot.send_message(1109158839,"DONE : "+str(message.from_user.first_name)+" "+str(message.from_user.last_name))
     except:
         solu(message)
